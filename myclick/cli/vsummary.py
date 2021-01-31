@@ -12,10 +12,10 @@ def vsummary():
 @click.option("--pmax", type=click.INT)
 @click.argument('base')
 @click.argument('ids', nargs=-1, required=True)
-def protein(base, ids, pmin, pmax):
+def protein(base, ids, **options):
     """Display a summary of the given proteins"""
 
-    VSummary(base).protein(*ids, pmin=pmin, pmax=pmax)
+    VSummary(base).protein(*ids, **options)
 
 @vsummary.command()
 @click.option("--opt1", is_flag=True, help="Option1", show_default=True)
